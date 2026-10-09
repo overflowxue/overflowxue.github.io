@@ -148,18 +148,6 @@
             ">全部</a>
         
 
-            <a href="/tags/%E7%BE%8E%E9%A3%9F/" style="-webkit-order:2;order:2" class="tags-list-item waves-effect waves-button waves-light">美食</a>
-
-        
-
-            <a href="/tags/%E5%B7%9D%E8%8F%9C/" style="-webkit-order:3;order:3" class="tags-list-item waves-effect waves-button waves-light">川菜</a>
-
-        
-
-            <a href="/tags/%E5%AE%B6%E5%B8%B8%E8%8F%9C/" style="-webkit-order:4;order:4" class="tags-list-item waves-effect waves-button waves-light">家常菜</a>
-
-        
-
             <a href="/tags/Hexo/" style="-webkit-order:5;order:5" class="tags-list-item waves-effect waves-button waves-light">Hexo</a>
 
         
@@ -169,6 +157,18 @@
         
 
             <a href="/tags/%E6%95%99%E7%A8%8B/" style="-webkit-order:1;order:1" class="tags-list-item waves-effect waves-button waves-light active">教程</a>
+
+        
+
+            <a href="/tags/%E7%BE%8E%E9%A3%9F/" style="-webkit-order:2;order:2" class="tags-list-item waves-effect waves-button waves-light">美食</a>
+
+        
+
+            <a href="/tags/%E5%B7%9D%E8%8F%9C/" style="-webkit-order:3;order:3" class="tags-list-item waves-effect waves-button waves-light">川菜</a>
+
+        
+
+            <a href="/tags/%E5%AE%B6%E5%B8%B8%E8%8F%9C/" style="-webkit-order:4;order:4" class="tags-list-item waves-effect waves-button waves-light">家常菜</a>
 
         
     </nav>
@@ -348,10 +348,10 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = '死鬼去哪里了！';
+            document.title = '咦？人呢？快回来！';
             clearTimeout(titleTime);
         } else {
-            document.title = '(つェ⊂)咦!又好了!';
+            document.title = '欢迎回来~ (つェ⊂)';
             titleTime = setTimeout(function() {
                 document.title = OriginTitile;
             },2000);
