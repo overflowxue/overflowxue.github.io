@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>从零开始：把 Hexo 博客部署到 GitHub Pages | Link</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Hexo,GitHub Pages,教程">
+    <meta name="description" content="本站就是用这套流程部署的。整篇文章假设你从一台干净的 Windows 电脑开始，跟着做大概需要 30 分钟。 一、GitHub Pages 是什么GitHub Pages 是 GitHub 免费提供的静态网站托管服务。只要你的仓库名叫 &lt;用户名&gt;.github.io，仓库里的静态文件就会自动发布到 https:&#x2F;&#x2F;&lt;用户名&gt;.github.io。 它有三个关键特点：  完全">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从零开始：把 Hexo 博客部署到 GitHub Pages">
+<meta property="og:url" content="https://overflowxue.github.io/2026/10/09/hexo-deploy-github-pages/index.html">
+<meta property="og:site_name" content="Link">
+<meta property="og:description" content="本站就是用这套流程部署的。整篇文章假设你从一台干净的 Windows 电脑开始，跟着做大概需要 30 分钟。 一、GitHub Pages 是什么GitHub Pages 是 GitHub 免费提供的静态网站托管服务。只要你的仓库名叫 &lt;用户名&gt;.github.io，仓库里的静态文件就会自动发布到 https:&#x2F;&#x2F;&lt;用户名&gt;.github.io。 它有三个关键特点：  完全">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-10-09T02:30:00.000Z">
+<meta property="article:modified_time" content="2026-10-09T01:35:41.870Z">
+<meta property="article:author" content="Link">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="GitHub Pages">
+<meta property="article:tag" content="教程">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Link</h5>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/overflowxue" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">从零开始：把 Hexo 博客部署到 GitHub Pages</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">从零开始：把 Hexo 博客部署到 GitHub Pages</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2026-10-09T02:30:00.000Z" itemprop="datePublished" class="page-time">
+  2026-10-09
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、GitHub-Pages-是什么"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、GitHub Pages 是什么</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、准备工作"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、准备工作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-注册-GitHub-账号"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1. 注册 GitHub 账号</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-安装-Git"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2. 安装 Git</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-安装-Node-js"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">3. 安装 Node.js</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、初始化-Hexo-博客"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、初始化 Hexo 博客</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-全局安装-Hexo-CLI"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">1. 全局安装 Hexo CLI</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-创建博客"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">2. 创建博客</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-本地预览"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">3. 本地预览</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、创建-GitHub-仓库"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、创建 GitHub 仓库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、配置部署"><span class="post-toc-number">5.</span> <span class="post-toc-text">五、配置部署</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-安装部署插件"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">1. 安装部署插件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-修改站点配置"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">2. 修改站点配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-配置-SSH-密钥"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">3. 配置 SSH 密钥</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#六、发布"><span class="post-toc-number">6.</span> <span class="post-toc-text">六、发布</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#七、日常写作流程"><span class="post-toc-number">7.</span> <span class="post-toc-text">七、日常写作流程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#八、踩坑记录"><span class="post-toc-number">8.</span> <span class="post-toc-text">八、踩坑记录</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#九、进阶建议"><span class="post-toc-number">9.</span> <span class="post-toc-text">九、进阶建议</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-hexo-deploy-github-pages"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">从零开始：把 Hexo 博客部署到 GitHub Pages</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2026-10-09 10:30:00" datetime="2026-10-09T02:30:00.000Z"  itemprop="datePublished">2026-10-09</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>本站就是用这套流程部署的。整篇文章假设你从一台干净的 Windows 电脑开始，跟着做大概需要 30 分钟。</p>
+<h2 id="一、GitHub-Pages-是什么"><a href="#一、GitHub-Pages-是什么" class="headerlink" title="一、GitHub Pages 是什么"></a>一、GitHub Pages 是什么</h2><p>GitHub Pages 是 GitHub 免费提供的静态网站托管服务。只要你的仓库名叫 <code>&lt;用户名&gt;.github.io</code>，仓库里的静态文件就会自动发布到 <code>https://&lt;用户名&gt;.github.io</code>。</p>
+<p>它有三个关键特点：</p>
+<ul>
+<li><strong>完全免费</strong>，自带 HTTPS</li>
+<li><strong>只能托管静态文件</strong>，不能跑后端和数据库</li>
+<li>对个人博客、项目文档来说完全够用</li>
+</ul>
+<p>博客的本质就是一堆 HTML 文件，所以静态托管正是它最合适的归宿。</p>
+<h2 id="二、准备工作"><a href="#二、准备工作" class="headerlink" title="二、准备工作"></a>二、准备工作</h2><h3 id="1-注册-GitHub-账号"><a href="#1-注册-GitHub-账号" class="headerlink" title="1. 注册 GitHub 账号"></a>1. 注册 GitHub 账号</h3><p>到 <a href="https://github.com" target="_blank" rel="noopener">github.com</a> 注册。用户名要慎重，它就是将来网址的一部分，注册后不好改。</p>
+<h3 id="2-安装-Git"><a href="#2-安装-Git" class="headerlink" title="2. 安装 Git"></a>2. 安装 Git</h3><p>到 <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">git-scm.com</a> 下载安装，一路默认即可。装完验证：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-安装-Node-js"><a href="#3-安装-Node-js" class="headerlink" title="3. 安装 Node.js"></a>3. 安装 Node.js</h3><p>到 <a href="https://nodejs.org" target="_blank" rel="noopener">nodejs.org</a> 下载 <strong>LTS 版本</strong>（20.x 即可）安装。验证：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、初始化-Hexo-博客"><a href="#三、初始化-Hexo-博客" class="headerlink" title="三、初始化 Hexo 博客"></a>三、初始化 Hexo 博客</h2><h3 id="1-全局安装-Hexo-CLI"><a href="#1-全局安装-Hexo-CLI" class="headerlink" title="1. 全局安装 Hexo CLI"></a>1. 全局安装 Hexo CLI</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-创建博客"><a href="#2-创建博客" class="headerlink" title="2. 创建博客"></a>2. 创建博客</h3><p>选一个放代码的目录（路径里最好不要有中文和空格）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-本地预览"><a href="#3-本地预览" class="headerlink" title="3. 本地预览"></a>3. 本地预览</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p>浏览器打开 <code>http://localhost:4000</code>，看到默认的 Hello World 就说明环境通了。<code>Ctrl+C</code> 停止。</p>
+<p>此时目录结构是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">blog&#x2F;</span><br><span class="line">├─ _config.yml      # 站点配置（重要）</span><br><span class="line">├─ package.json</span><br><span class="line">├─ scaffolds&#x2F;       # 文章模板</span><br><span class="line">├─ source&#x2F;</span><br><span class="line">│  └─ _posts&#x2F;       # 你的文章，Markdown 格式</span><br><span class="line">└─ themes&#x2F;          # 主题</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、创建-GitHub-仓库"><a href="#四、创建-GitHub-仓库" class="headerlink" title="四、创建 GitHub 仓库"></a>四、创建 GitHub 仓库</h2><p>登录 GitHub，新建仓库（New repository）：</p>
+<ul>
+<li>仓库名<strong>必须</strong>是 <code>&lt;用户名&gt;.github.io</code>，比如用户名是 <code>overflowxue</code>，仓库名就是 <code>overflowxue.github.io</code></li>
+<li>选 Public</li>
+<li><strong>不要</strong>勾选初始化 README</li>
+</ul>
+<h2 id="五、配置部署"><a href="#五、配置部署" class="headerlink" title="五、配置部署"></a>五、配置部署</h2><h3 id="1-安装部署插件"><a href="#1-安装部署插件" class="headerlink" title="1. 安装部署插件"></a>1. 安装部署插件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-修改站点配置"><a href="#2-修改站点配置" class="headerlink" title="2. 修改站点配置"></a>2. 修改站点配置</h3><p>编辑 <code>_config.yml</code>，末尾的 <code>deploy</code> 段改成：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">git@github.com:&lt;用户名&gt;/&lt;用户名&gt;.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
+<p>同时把上方的 <code>url</code> 改成你的站点地址（不改的话分享链接和 SEO 都会指向错误的域名）：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="string">https://&lt;用户名&gt;.github.io</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-配置-SSH-密钥"><a href="#3-配置-SSH-密钥" class="headerlink" title="3. 配置 SSH 密钥"></a>3. 配置 SSH 密钥</h3><p>GitHub 推荐用 SSH 认证。生成密钥：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t ed25519 -C <span class="string">"你的邮箱@example.com"</span></span><br></pre></td></tr></table></figure>
+
+<p>一路回车，然后查看公钥：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
+
+<p>复制整行输出，打开 GitHub → Settings → <strong>SSH and GPG keys</strong> → New SSH key，粘贴保存。</p>
+<p>验证：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<p>第一次连接会问是否信任主机，输入 <code>yes</code>。看到 <code>Hi &lt;用户名&gt;! You&#39;ve successfully authenticated</code> 就通了。</p>
+<h2 id="六、发布"><a href="#六、发布" class="headerlink" title="六、发布"></a>六、发布</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p><code>hexo deploy</code> 会把生成的静态文件推送到你的仓库，命令行出现 <code>INFO Deploy done: git</code> 即成功。GitHub Pages 构建 <strong>1~2 分钟</strong>后生效，访问 <code>https://&lt;用户名&gt;.github.io</code> 看到你的博客，部署完成。</p>
+<h2 id="七、日常写作流程"><a href="#七、日常写作流程" class="headerlink" title="七、日常写作流程"></a>七、日常写作流程</h2><p>以后写文章只需要三步：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">"文章标题"</span>    <span class="comment"># 在 source/_posts/ 生成 Markdown 文件</span></span><br><span class="line"><span class="comment"># 用编辑器写正文</span></span><br><span class="line">hexo clean &amp;&amp; hexo deploy</span><br></pre></td></tr></table></figure>
+
+<h2 id="八、踩坑记录"><a href="#八、踩坑记录" class="headerlink" title="八、踩坑记录"></a>八、踩坑记录</h2><p>这些是我实际遇到过的坑，提前知道能省不少时间：</p>
+<p><strong>1. 部署后访问 404</strong></p>
+<p>刚部署完 Pages 需要构建，等一两分钟再刷新，不要急着连续重推。</p>
+<p><strong>2. Permission denied (publickey)</strong></p>
+<p>公钥没加对地方，或者加到了另一个 GitHub 账号。用 <code>ssh -T git@github.com</code> 看返回的用户名是不是你自己的。</p>
+<p><strong>3. 页面能打开但样式全丢</strong></p>
+<p><code>_config.yml</code> 里的 <code>url</code> 和实际访问地址不一致导致的，改成 <code>https://&lt;用户名&gt;.github.io</code>（末尾不带斜杠）。</p>
+<p><strong>4. 网络连不上 GitHub</strong></p>
+<p>国内网络访问 GitHub 的 443 端口时不时会抽风，但 22 端口（SSH）通常稳定得多。这也是推荐 SSH 方式部署的原因之一。</p>
+<p><strong>5. 分支名不一致</strong></p>
+<p>新建仓库默认分支可能是 <code>main</code>，而老仓库和很多教程用的是 <code>master</code>。<code>deploy</code> 里的 <code>branch</code> 必须和仓库实际分支一致，否则会推到空分支导致 404。</p>
+<h2 id="九、进阶建议"><a href="#九、进阶建议" class="headerlink" title="九、进阶建议"></a>九、进阶建议</h2><ul>
+<li><strong>换个好看的主题</strong>：官方主题站 <a href="https://hexo.io/themes/" target="_blank" rel="noopener">hexo.io/themes</a> 有几百个，下载后放进 <code>themes/</code> 目录，改 <code>_config.yml</code> 的 <code>theme</code> 字段即可</li>
+<li><strong>源码也备份一份</strong>：构建产物可以随时重新生成，但 <code>source/_posts/</code> 里的文章是唯一的，建议把源码推到一个私有仓库（Gitee 或 GitHub 私有库都行），形成「源码一个仓、产物一个仓」的双仓库结构</li>
+<li><strong>绑定自定义域名</strong>：在 <code>source/</code> 下放一个 <code>CNAME</code> 文件写入域名，再去域名服务商加一条 CNAME 记录指向 <code>&lt;用户名&gt;.github.io</code></li>
+</ul>
+<p>祝写作愉快。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2026-10-09T01:35:41.870Z" itemprop="dateUpdated">2026-10-09 09:35:41</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2026/10/09/hexo-deploy-github-pages/" target="_blank" rel="external">https://overflowxue.github.io/2026/10/09/hexo-deploy-github-pages/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://overflowxue.github.io">
+            <img src="/img/avatar.jpg" alt="Link">
+            Link
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub-Pages/" rel="tag">GitHub Pages</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://overflowxue.github.io/2026/10/09/hexo-deploy-github-pages/&title=《从零开始：把 Hexo 博客部署到 GitHub Pages》 — Link&pic=https://overflowxue.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://overflowxue.github.io/2026/10/09/hexo-deploy-github-pages/&title=《从零开始：把 Hexo 博客部署到 GitHub Pages》 — Link&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://overflowxue.github.io/2026/10/09/hexo-deploy-github-pages/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《从零开始：把 Hexo 博客部署到 GitHub Pages》 — Link&url=https://overflowxue.github.io/2026/10/09/hexo-deploy-github-pages/&via=https://overflowxue.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://overflowxue.github.io/2026/10/09/hexo-deploy-github-pages/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/01/29/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">我的第一篇博客</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Link &copy; 2020 - 2026</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://overflowxue.github.io/2026/10/09/hexo-deploy-github-pages/&title=《从零开始：把 Hexo 博客部署到 GitHub Pages》 — Link&pic=https://overflowxue.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://overflowxue.github.io/2026/10/09/hexo-deploy-github-pages/&title=《从零开始：把 Hexo 博客部署到 GitHub Pages》 — Link&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://overflowxue.github.io/2026/10/09/hexo-deploy-github-pages/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《从零开始：把 Hexo 博客部署到 GitHub Pages》 — Link&url=https://overflowxue.github.io/2026/10/09/hexo-deploy-github-pages/&via=https://overflowxue.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://overflowxue.github.io/2026/10/09/hexo-deploy-github-pages/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://overflowxue.github.io/2026/10/09/hexo-deploy-github-pages/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
